@@ -81,7 +81,7 @@ def get_next_video():
 # --- POST VIDEO TO FACEBOOK ---
 def post_video_to_facebook(video_id, video_name):
     video_url = f"https://drive.google.com/uc?id={video_id}&export=download"
-    url = f"https://graph.facebook.com/v18.0/{FACEBOOK_PAGE_ID}/video_reels"
+    url = f"https://graph.facebook.com/v18.0/{FACEBOOK_PAGE_ID}/videos"
 
     data = {
         "access_token": FACEBOOK_PAGE_ACCESS_TOKEN,
@@ -93,7 +93,7 @@ def post_video_to_facebook(video_id, video_name):
     response = requests.post(url, data=data)
     if not response.ok:
         raise RuntimeError(f"Facebook API error: {response.text}")
-    print(f"[SUCCESS] Posted reel: {video_name}")
+    print(f"[SUCCESS] Posted Video: {video_name}")
 
 # --- MAIN ---
 def main():
